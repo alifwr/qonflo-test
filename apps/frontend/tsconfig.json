@@ -1,0 +1,16 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "tsbuild",
+    "rootDir": "src",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "jsx": "react-jsx",
+    "noEmit": false,
+    "types": ["vite/client"],
+    "verbatimModuleSyntax": true
+  },
+  "include": ["src"],
+  "references": [{ "path": "../../packages/shared" }]
+}

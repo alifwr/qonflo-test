@@ -1,0 +1,22 @@
+{
+  "name": "mini-task-manager",
+  "private": true,
+  "workspaces": ["apps/*", "packages/*"],
+  "scripts": {
+    "dev": "concurrently \"npm run dev -w @mtm/backend\" \"npm run dev -w @mtm/frontend\"",
+    "build": "npm run build -w @mtm/shared && npm run build -w @mtm/backend && npm run build -w @mtm/frontend",
+    "typecheck": "tsc -b",
+    "test": "npm run test -w @mtm/shared && npm run test -w @mtm/backend && npm run test -w @mtm/frontend",
+    "start": "npm run start -w @mtm/backend",
+    "docker:up": "docker compose up --build",
+    "docker:down": "docker compose down",
+    "postinstall": "npm run build -w @mtm/shared"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "typescript": "^5.7.3"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

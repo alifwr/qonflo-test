@@ -1,0 +1,24 @@
+{
+  "name": "@mtm/backend",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "build": "tsc -b && node --input-type=module -e \"import { copyFileSync, mkdirSync } from 'node:fs'; mkdirSync('dist/db', { recursive: true }); copyFileSync('src/db/schema.sql', 'dist/db/schema.sql');\"",
+    "start": "node dist/index.js",
+    "test": "tsx --test test/*.test.ts"
+  },
+  "dependencies": {
+    "@mtm/shared": "*",
+    "better-sqlite3": "^11.8.1",
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.12",
+    "@types/express": "^4.17.21",
+    "@types/node": "^22.13.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3"
+  }
+}
